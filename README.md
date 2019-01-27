@@ -27,7 +27,7 @@ import Buso from 'buso'
 #### Basic usage
 
 ```javascript
-// Setup a new bus with a buffer of 2 items
+// Setup a new bus with no buffer
 const bus = new Buso()
 
 // Data published can be anything
