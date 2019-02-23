@@ -1,19 +1,19 @@
-# Buso
+# Postbus
 
 ## Buffered message bus
 
-Buso is basic buffered message bus written in TypeScript. It runs in the browser, or on the server using node.js.
+Postbus is basic buffered message bus written in TypeScript. It runs in the browser, or on the server using node.js.
 
 ### Setup
 
 ```bash
-yarn add buso
+yarn add postbus
 ```
 
 or
 
 ```bash
-npm install --save buso
+npm install --save postbus
 ```
 
 ### Usage
@@ -21,14 +21,14 @@ npm install --save buso
 Before you start import the library
 
 ```javascript
-import Buso from 'buso'
+import Postbus from 'postbus'
 ```
 
 #### Basic usage
 
 ```javascript
 // Setup a new bus with no buffer
-const bus = new Buso()
+const bus = new Postbus()
 
 // Data published can be anything
 const data = {}
@@ -53,7 +53,7 @@ bus.unsubsribe(subscriber)
 
 ```javascript
 // Setup a new bus with a buffer of 2 items
-const bus = new Buso(2)
+const bus = new Postbus(2)
 
 // Data published can be anything
 const data = {}

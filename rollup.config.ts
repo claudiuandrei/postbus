@@ -7,7 +7,7 @@ import json from 'rollup-plugin-json'
 
 const pkg = require('./package.json')
 
-const libraryName = 'buso'
+const libraryName = 'postbus'
 
 export default {
   input: `src/${libraryName}.ts`,

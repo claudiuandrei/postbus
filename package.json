@@ -1,5 +1,5 @@
 {
-  "name": "buso",
+  "name": "postbus",
   "version": "1.0.0",
   "description": "Buffered message bus",
   "keywords": [
@@ -10,16 +10,16 @@
     "publish",
     "subscribe"
   ],
-  "main": "dist/buso.umd.js",
-  "module": "dist/buso.es5.js",
-  "typings": "dist/types/buso.d.ts",
+  "main": "dist/postbus.umd.js",
+  "module": "dist/postbus.es5.js",
+  "typings": "dist/types/postbus.d.ts",
   "files": [
     "dist"
   ],
   "author": "Claudiu Andrei <claudiu.andrei@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/claudiuandrei/buso"
+    "url": "https://github.com/claudiuandrei/postbus"
   },
   "license": "MIT",
   "engines": {

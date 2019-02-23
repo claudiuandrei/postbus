@@ -2,7 +2,7 @@
 type Handler = (context: any) => void
 
 // Buffered bus
-class Buso {
+class Postbus {
   // Handlers
   private handlers: Set<Handler> = new Set()
 
@@ -52,4 +52,4 @@ class Buso {
   }
 }
 
-export default Buso
+export default Postbus
