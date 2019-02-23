@@ -35,22 +35,15 @@ const data = {}
 const message = 'Hi'
 const number = 1
 
-// Publish before you subscribe
-bus.publish(data)
-
-// Sometimes later
-const subscriber = context => {
+// Setup a subscriber
+bus.subscribe(context => {
   console.log(context)
-}
+})
 
-// The subscription will go over all messages in the buffer
-bus.subscribe(subscriber)
-
-// Publish after the subscription
+// Publish some data
+bus.publish(data)
 bus.publish(message)
 bus.publish(number)
-
-// "Hi" and 1 are logged, but not {} as there is no buffer to keep data before subscriptions
 
 // Cleanup
 bus.unsubsribe(subscriber)
@@ -65,22 +58,21 @@ const bus = new Buso(2)
 // Data published can be anything
 const data = {}
 const message = 'Hi'
-const number = 1
 
 // Publish before you subscribe
 bus.publish(data)
 bus.publish(message)
+
+// Because this will exceed the buffer size, it will push the first item out
 bus.publish(number)
 
-// Sometimes later
-const subscriber = context => {
-  console.log(context)
-}
-
 // The subscription will go over all messages in the buffer
-bus.subscribe(subscriber)
+bus.subscribe(context => {
+  console.log(context)
+})
 
-// "Hi" and 1 are logged, but not {} as data is evacuated from the buffer as it reached the max size
+// You can still pusblish here too, and the previous subscriber will catch it all
+bus.publish(data)
 
 // Cleanup
 bus.unsubsribe(subscriber)
