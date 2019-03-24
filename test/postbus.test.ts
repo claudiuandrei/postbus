@@ -76,11 +76,11 @@ describe('Postbus', () => {
     const data = { test: true }
 
     // Subscribe and publish
-    bus.subscribe(onPublish)
+    const unsubscribe = bus.subscribe(onPublish)
     bus.publish(data)
 
     // Unsubscribe and publish
-    bus.unsubscribe(onPublish)
+    unsubscribe()
     bus.publish(data)
 
     // Test if the event function has been called

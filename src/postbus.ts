@@ -36,19 +36,22 @@ class Postbus {
   }
 
   // Add a subscriber
-  subscribe(handler: Handler): void {
+  subscribe(handler: Handler): () => void {
+    // Wrap the handler to make sure it is uniques
+    const h: Handler = (context: any): void => {
+      handler(context)
+    }
+
     // Attach the handler
-    this.handlers.add(handler)
+    this.handlers.add(h)
 
     // Send the bufferedd data
-    this.buffer.forEach((context: any) => {
-      handler(context)
-    })
-  }
+    this.buffer.forEach(h)
 
-  // Remove a subscriber
-  unsubscribe(handler: Handler): void {
-    this.handlers.delete(handler)
+    // Unsubscribe
+    return () => {
+      this.handlers.delete(h)
+    }
   }
 }
 
